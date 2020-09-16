@@ -11,34 +11,89 @@ const store = {
   questionNumber: 0,
   score: 0
 };
-console.log(store.questions);
-function createStartScreen() {
 
+function createStartScreen() {
+  return '<div> <button id="start-button">start button</button> <button id="try-again-button">results button</button> </div>';
 }
 
+function createQuestionScreen() {
+  return `<div class="ui grid container">
+  <h2 class="centered" id="question">${store.questions[store.questionNumber - 1].text}</h2>
+  <form action="" class="ui twelve wide column segment form centered">
+    <!-- <img src="https://semantic-ui.com/images/avatar2/large/kristy.png" alt="" class="ui card centered"> -->
+    <input type="radio" id="answer">answer button</button>
+  </form>
+</div>`
+}
+
+function createHeader() {
+// TODO: change the name of quiz
+return `
+<h1 class="ui header">NAME OF QUIZ</h1>
+<h2 class="active item" id="question-number"> Question: ${store.questionNumber} of ${store.questions.length}</h2>
+<h2 class="item">${store.score} / ${store.questions.length}</h2>
+`
+}
 
 function createResultsScreen () {
-
+console.log('result screen');
 }
 
-function handleStartClick () {
 
+
+function handleStartClick () {
+  const main = $('main');
+  $('main').on('click', '#start-button', (e) => {
+    store.questionNumber = 1;
+    render();
+  });
 }
 
 function handleAnswerClick () {
+  $('main').on('click', '#answer', (e) => {
+    // console.log(e);
+    store.questionNumber++;
+    render();
+  })
+}
 
+function handleRetryClick() {
+  store.questionNumber = 0;
+  store.quizStarted = false;
+  store.score = 0;
+  render();
 }
 
 function render() {
-console.log('hwasdgf')
+
+  const main = $('main');
+  const header = $('header');
+  console.log(store.quizStarted == true);
+  if (store.questionNumber === 0) {
+    console.log('in store.score');
+    if (!store.quizStarted) return main.html(createStartScreen());
+      console.log('after quiz started');
+     return main.html(createQuestionScreen());
+  }
+
+  if (store.questionNumber == store.questions.length) {
+    console.log('questions ended');
+    header.empty();
+    return main.html(createResultsScreen());    
+  }
+  console.log(`Current question: ${store.questionNumber}`);
+  header.html(createHeader());
+  main.html(createQuestionScreen());
 }
 
-$(
-  render()
-
+$( () => {
+  handleRetryClick();
+  handleAnswerClick();
+  handleStartClick();
+  render(); 
+  }
 );
 
-console.log();
 /**
  * 
  * Technical requirements:

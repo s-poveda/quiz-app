@@ -14,12 +14,12 @@ export default [
         correctIndex: 1
         },
         
-    {   text:"What is Mr.Crabs favortie thing.",
+    {   text:"What is Mr.Crabs favortie thing?",
         answers:[ "Money", "Brad Pitt", "Titanic", "Rocky"],
         correctIndex: 0
         },
     
-    {   text:"How old is Sponge Bob .",
+    {   text:"How old is Sponge Bob?",
         answers:["18", "35", "56", "20"],
         correctIndex: 3 
         }

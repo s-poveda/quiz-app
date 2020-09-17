@@ -15,52 +15,41 @@ const store = {
 };
 
 function createStartScreen() {
-  return `
-  <h2 class="ui huge header center aligned" id="welcome-message">Welcome to the SpongeBob Quiz!</h2>
-  <div class="ui grid segment very padded" id="start-button-div"> <button id="start-button" class="ui big pink button eight wide column centered">start button</button>
-  `;
-  // <button id="try-again-button" class="ui button right aligned">results button</button> </div>
+  return '<div class="ui centered"> <button id="start-button" class="ui button">start button</button> <button id="try-again-button" class="ui button right aligned">results button</button> </div>';
 }
 
 function createQuestionScreen() {
   const questionContainer = store.questions[store.questionNumber - 1];
   return `
   <div class="ui grid container">
-    <div class="ui segment ten wide column centered">
-      <h2 class="ui fourteen row huge header" id="question">${questionContainer.text}</h2>
-    </div>
-  
-    <form action="" class="ui twelve wide column segment form centered">
+  <h2 class="ui centered fourteen row" id="question">${questionContainer.text}</h2>
+  <form action="" class="ui twelve wide column segment form centered">
     <div class="ui" id="answer-list">
     ${questionContainer.answers
       .map((answer, index) => {
         return `
       <div class="ui selection" id="${ANSWER_OPTION + index}">
-        <input class="ui input radio" type="radio" id="input${index}" name="answer" >
-        <label for="answer" class="ui label header answer-text">${answer}</label>
+          <input class="ui input" type="radio" id="input${index}" name="answer" >
+          <label for="answer" class="answer-text">${answer}</label>
       </div>
       
       `;
       })
       .join("")}
   </div>
-  <button class="ui right labeled icon huge button disabled right floated" id="next">Next<i class="right arrow icon"></i></button>
+  <button class="ui button disabled right floated" id="next">Next</button>
   </form>
 </div>
 `;
 }
 
+
 function createHeader() {
   // TODO: change the name of quiz
   return `
-<<<<<<< HEAD
 
 <h1 class="ui item large header">SpongeBob Quiz</h1>
-<h2 class="ui item ribbon" id="question-number"> Question: ${store.questionNumber}/${store.questions.length}</h2>
-=======
-<h2 class="ui item large header">SpongeBob Quiz</h2>
-<h2 class="ui active item" id="question-number"> Question: ${store.questionNumber}/${store.questions.length}</h2>
->>>>>>> 1255b93370a6e192ab19a79a1a020e908aab5045
+<h2 class="ui item" id="question-number"> Question: ${store.questionNumber}/${store.questions.length}</h2>
 <h2 class="ui item">${store.score} / ${store.questions.length}</h2>
 `;
 }
@@ -85,17 +74,11 @@ function handleNextClick() {
     
     console.log('selected answer:',store.selectedAnswer);
     console.log('correct index:',store.questions[store.questionNumber - 1]);
-    
-    if (store.selectedAnswer != store.questions[store.questionNumber - 1].correctIndex) { 
-      $('#answer-list').find(`#${ANSWER_OPTION+store.selectedAnswer} label`).css('background-color', 'red')
-    } else {
-      store.score++
-    }
-    console.log($(`#${ANSWER_OPTION+store.questions[store.questionNumber - 1].correctIndex}`));
-    $(`#${ANSWER_OPTION+store.questions[store.questionNumber - 1].correctIndex} label`).css('background-color', 'green');
+    if (store.selectedAnswer == store.questions[store.questionNumber - 1].correctIndex) { store.score++}
+    console.log('score',store.score);
+
     store.questionNumber++;
-    setTimeout(render, 650);
-    
+    render();
   });
 }
 
@@ -120,7 +103,6 @@ function handleRetryClick() {
   store.questionNumber = 0;
   store.quizStarted = false;
   store.score = 0;
-  
   render();
 }
 

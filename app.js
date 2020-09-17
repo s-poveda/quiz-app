@@ -62,9 +62,8 @@ function createHeader() {
 
 function createResultsScreen() {
   return `
-  <header class="ui ui container two item menu">
   <h1 class="ui item large header">SpongeBob Quiz</h1>
-  <h2 class="ui item">${store.score} / ${store.questions.length}</h2></header>
+  <h2 class="ui item">${store.score} / ${store.questions.length}</h2>
   <table class="ui brown celled padded table">
       <thead>
         <tr><th class="single line">Correct</th>
@@ -83,8 +82,10 @@ function createResultsScreen() {
           </td>
         </tr>
       </tbody>
+      <button id="start-button" class="ui big pink button eight wide column centered">Try again</button>
     </table>`;
 }
+
 
 function handleStartClick() {
   const main = $("main");
@@ -129,12 +130,13 @@ function handleAnswerClick() {
     
   });
 }
-
-function handleRetryClick() {
-  store.questionNumber = 0;
-  store.quizStarted = false;
-  store.score = 0;
-  render();
+function handleRetryClick(){
+  const main = $("main");
+  $("main").on("click", "#try-again", (e) => {
+    store.questionNumber = 5;
+    store.quizStarted = true;
+    render();
+  });
 }
 
 function render() {
@@ -162,6 +164,7 @@ $(() => {
   handleNextClick();
   handleAnswerClick();
   handleStartClick();
+  handleRetryClick();
   render();
 });
 

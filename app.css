@@ -13,6 +13,21 @@ body{
   overflow: hidden;
 }
 
+div button{
+  text-align: center;
+}
+#start-button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: block;
+  font-size: 16px;
+  margin-bottom: 19px;
+}
+
 label {
   font-size: 20px;
   margin-left: 20px;
@@ -33,6 +48,14 @@ main {
 #start-button {
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 
+};
+.ui.brown.celled.padded.table{
+  margin: 10% 20px 20px 20px;
+  height: 20%;
+  background-color: #f8f8ff;
+}
+.th.single.line{
+  font-weight: bold;
 }
 
 /* #try-again-button {
@@ -42,19 +65,34 @@ main {
   padding: 15px 32px;
   text-align: center;
   text-decoration: none;
-  display: block;
+  display:block;
   font-size: 16px;
-  margin-right:10px;
-  margin-left: 10px;
+
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+
+   
+}
+
   
 } */
+
 
 #question-number{
 
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }
 
+header{
+
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+.ui.twelve.wide.column.segment.form.centered{
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+.ui.button.right.floated{
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
   #answer-list *{
   cursor: pointer;
 }

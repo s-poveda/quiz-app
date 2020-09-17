@@ -65,38 +65,11 @@ return `
 
 function createResultsScreen() {
   return `
-  <div class="ui ui-container grid center aligned">
-  <table class="ui brown celled padded table centered">
-      <thead>
-        <tr>
-          <th class="single line">Correct</th>
-          <th>Incorrect</th>
-          <th>%</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>
-            <h2 class="ui center aligned header" id="number-correct">${store.score}</h2>
-          </td>
-          <td class="single line">
-          <h2 class="ui center aligned header" id="number-incorrect">${store.questions.length -  store.score}</h2>
-          </td>
-          <td>
-            <div class="ui star rating" data-rating="3" data-max-rating="3">
-              <h2 class="ui center aligned header" id="percent-correct">${store.score/store.questions.length * 100}
-              </h2>
-            </div>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-    </div>
-    <div id="try-again-button-div" class="ui grid segment padded">
-      <button id="try-again" class="massive ui pink button centered seven wide column huge">
-      try again
-      </button>
-    </div>
+<div id="try-again-button-div" class="ui grid segment padded">
+<button id="try-again" class="massive ui pink button centered seven wide column huge">
+try again
+</button>
+</div>
     `;
 }
 

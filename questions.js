@@ -1,26 +1,27 @@
 export default [
-    {   text:"If a woodchuck could chuck wood, how much wood would a woodchuck chuck?",
-        answers:["Yes", "No", "10.83 Kilograms", "As much as a woodchuck that could chuck wood should chuck wood."],
-        correctIndex: 3
+    {   text:"Who is Spong Bobs best friend?",
+        answers:["Patrick", "Sandy ", "Mr. Crabs", "Gary the Snail."],
+        correctIndex: 0
         },
     
-    {   text:"What happens when you click this question?",
-        answers:["You fail.", "You win.", "Nothing.", "We create replayability."],
-        correctIndex: 0
+    {   text:"Where does Sponge Bob live?",
+        answers:["Washington DC.", "The Sewer.", "In London.", "Bikini Bottom."],
+        correctIndex: 3
        },
         
-    {   text:"What is the number of this question?",
-        answers:["1", "2", "4", "null?"],
-        correctIndex: 3
+    {   text:"What does Sponge Bob drive?",
+        answers:["A prius", "A boat", "A Tesla Model 3", "BMW 3 Series?"],
+        correctIndex: 1
         },
         
-    {   text:"Rich lady lets poor man freeze to death.",
-        answers:[ "Breakfast at Tiffany's", "Who Killed Roger Rabbit?", "Titanic", "Rocky"],
-        correctIndex: 2
+    {   text:"What is Mr.Crabs favortie thing.",
+        answers:[ "Money", "Brad Pitt", "Titanic", "Rocky"],
+        correctInd
         },
     
-    {   text:"British man is not British, and not a man. Still manages lure women in to his blue police box.",
-        answers:["Doctor Who", "CSI: Miami", "Two and a Half Men", "Fox News"],
-        correctIndex:0 
+    {   text:"How old is Sponge Bob .",
+        answers:["18", "35", "56", "20"],
+        correctIndex: 3 
         }
     ];
+

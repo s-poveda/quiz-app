@@ -98,9 +98,10 @@ function handleAnswerClick() {
 }
 
 function handleRetryClick() {
-  store.questionNumber = 0;
-  store.quizStarted = false;
-  store.score = 0;
+  // store.questionNumber = 0;
+  // store.quizStarted = false;
+  // store.score = 0;
+  store.questionNumber = 10;
   render();
 }
 

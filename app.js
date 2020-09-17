@@ -52,10 +52,15 @@ function createQuestionScreen() {
 
 
 function createHeader() {
-  // TODO: change the name of quiz
-  return `
+  if (store.questionNumber < store.questions.length) return `
 <h2 class="ui item large header">SpongeBob Quiz</h2>
 <h2 class="ui item" id="question-number"> Question: ${store.questionNumber}/${store.questions.length}</h2>
+<h2 class="ui item">${store.score} / ${store.questions.length}</h2>
+`
+
+return `
+<h2 class="ui item large header">SpongeBob Quiz</h2>
+<h2 class="ui item" id="#the-end">The End</h2>
 <h2 class="ui item">${store.score} / ${store.questions.length}</h2>
 `;
 }

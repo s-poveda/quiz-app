@@ -16,7 +16,7 @@ export default [
         
     {   text:"What is Mr.Crabs favortie thing?",
         answers:[ "Money", "Brad Pitt", "Titanic", "Rocky"],
-        correctInd
+        correctIndex: 0
         },
     
     {   text:"How old is Sponge Bob?",

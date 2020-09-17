@@ -17,7 +17,7 @@ function createStartScreen() {
   return `
   <h2 class="ui huge header center aligned" id="welcome-message">Welcome to the SpongeBob Quiz!</h2>
   <div class="ui grid segment very padded" id="start-button-div"> 
-  <button id="start-button" class="ui big pink button eight wide column centered">start button</button>
+  <button id="start-button" class="massive ui pink button eight wide column centered">start button</button>
   </div>
   `}
 
@@ -66,7 +66,7 @@ return `
 function createResultsScreen() {
   return `
   <div class="ui ui-container grid center aligned">
-  <table class="ui brown celled padded table centered aligned">
+  <table class="ui brown celled padded table centered">
       <thead>
         <tr>
           <th class="single line">Correct</th>
@@ -92,8 +92,10 @@ function createResultsScreen() {
       </tbody>
     </table>
     </div>
-    <div class="ui centered aligned">
-      <button id="try-again" class="button">try again</button>
+    <div id="try-again-button-div" class="ui grid segment padded">
+      <button id="try-again" class="massive ui pink button centered seven wide column huge">
+      try again
+      </button>
     </div>
     `;
 }

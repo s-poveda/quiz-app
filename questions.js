@@ -12,11 +12,11 @@ export default [
     {   text:"What does Sponge Bob drive?",
         answers:["A prius", "A boat", "A Tesla Model 3", "BMW 3 Series?"],
         correctIndex: 1
-        },gi
+        },
         
     {   text:"What is Mr.Crabs favortie thing.",
         answers:[ "Money", "Brad Pitt", "Titanic", "Rocky"],
-        correctIndex: 0
+        correctInd
         },
     
     {   text:"How old is Sponge Bob .",

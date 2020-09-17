@@ -3,17 +3,19 @@
  */
 
 import questions from "./questions.js";
-
+const ANSWER_OPTION = 'answer';
 const store = {
   // 5 or more questions are required
   questions,
   quizStarted: false,
   questionNumber: 0,
   score: 0,
+  selectedAnswer: null,
+  lastSelected: null
 };
 
 function createStartScreen() {
-  return '<div> <button id="start-button">start button</button> <button id="try-again-button">results button</button> </div>';
+  return '<div class="ui centered"> <button id="start-button" class="ui button">start button</button> <button id="try-again-button" class="ui button right aligned">results button</button> </div>';
 }
 
 function createQuestionScreen() {
@@ -22,13 +24,12 @@ function createQuestionScreen() {
   <div class="ui grid container">
   <h2 class="ui centered fourteen row" id="question">${questionContainer.text}</h2>
   <form action="" class="ui twelve wide column segment form centered">
-    <!-- <img src="https://semantic-ui.com/images/avatar2/large/kristy.png" alt="" class="ui card centered"> -->
     <div class="ui" id="answer-list">
     ${questionContainer.answers
       .map((answer, index) => {
         return `
-      <div class="ui">
-          <input class="ui input" type="radio" name="answer" id=answer data-item-index="${index}">
+      <div class="ui selection" id="${ANSWER_OPTION + index}">
+          <input class="ui input" type="radio" id="input${index}" name="answer" >
           <label for="answer" class="answer-text">${answer}</label>
       </div>
       
@@ -45,9 +46,9 @@ function createQuestionScreen() {
 function createHeader() {
   // TODO: change the name of quiz
   return `
-<h1 class="ui header">NAME OF QUIZ</h1>
-<h2 class="active item" id="question-number"> Question: ${store.questionNumber}/${store.questions.length}</h2>
-<h2 class="item">${store.score} / ${store.questions.length}</h2>
+<h1 class="ui item large header">SpongeBob Quiz</h1>
+<h2 class="ui item ribbon" id="question-number"> Question: ${store.questionNumber}/${store.questions.length}</h2>
+<h2 class="ui item">${store.score} / ${store.questions.length}</h2>
 `;
 }
 
@@ -63,21 +64,37 @@ function handleStartClick() {
   });
 }
 
-function handleAnswerClick() {
+//TODO: FINISH HANDLE NEXT BUTTON
+function handleNextClick() {
   $("main").on("click", "#next", (e) => {
     e.preventDefault();
-    console.log('in Answer click', e);
+    console.log('in next click', e);
     store.quizStarted = true;
 
-    //gets current 
+    //gets current question object
     const questionContainer = store.questions[store.questionNumber - 1];
-    const selectedAnswer = $('main').find('input[name="answer"]');
+    const selectedAnswer = $(`#answer${questionContainer}`);
     console.log(selectedAnswer);
     store.questionNumber++;
 
     // if (questionContainer.correct == )
     store.score++;
     render();
+  });
+}
+
+function handleAnswerClick() {
+  $('main').on('click','.selection', (e) => {
+    const lastSelectedEl = $(`div[id="${ANSWER_OPTION + store.lastSelected}"`).find('input');
+
+    //removes 'checked' attribute from last selected input
+    $(`div[id="${ANSWER_OPTION + store.lastSelected}"`).find('input').removeAttr('checked');
+    //sets current selected index
+    store.selectedAnswer = $(e.currentTarget).attr('id').substring(ANSWER_OPTION.length);
+    //updates last selected index
+    store.lastSelected = store.selectedAnswer;
+    $(e.currentTarget).find('input').attr('checked', '');
+    
   });
 }
 
@@ -111,6 +128,7 @@ function render() {
 
 $(() => {
   handleRetryClick();
+  handleNextClick();
   handleAnswerClick();
   handleStartClick();
   render();

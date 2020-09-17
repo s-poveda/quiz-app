@@ -1,12 +1,3 @@
-/* Your styles should be mobile-first and responsive */
-
-/** 
-  * If you are unclear on how to utilize a mobile-first, responsive technique to write your CSS, here is an example: 
-  *
-  * https://github.com/andreacardybailey/responsive_example/blob/master/styles/responsive-base.css 
-  *
-*/
-
 body{
   background-image: url('https://static0.srcdn.com/wordpress/wp-content/uploads/2019/09/bikini-bottom.png');
   background-size: cover;
@@ -27,7 +18,9 @@ div button{
   font-size: 16px;
   margin-bottom: 19px;
 }
-
+table {
+  width: 70% !important;
+}
 label {
   font-size: 20px;
   margin-left: 20px;
@@ -72,9 +65,7 @@ main {
 
    
 }
-
-  
-} */
+*/
 
 
 #question-number{

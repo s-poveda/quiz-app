@@ -5,7 +5,6 @@
 import questions from "./questions.js";
 const ANSWER_OPTION = 'answer';
 const store = {
-  // 5 or more questions are required
   questions,
   quizStarted: false,
   questionNumber: 0,
@@ -39,7 +38,6 @@ function createQuestionScreen() {
         <input class="ui input radio" type="radio" id="input${index}" name="answer" >
         <label for="answer" class="ui label header answer-text">${answer}</label>
       </div>
-      
       `;
       })
       .join("")}
@@ -52,7 +50,7 @@ function createQuestionScreen() {
 
 
 function createHeader() {
-  if (store.questionNumber < store.questions.length) return `
+  if (store.questionNumber - 1 < store.questions.length) return `
 <h2 class="ui item large header">SpongeBob Quiz</h2>
 <h2 class="ui item" id="question-number"> Question: ${store.questionNumber}/${store.questions.length}</h2>
 <h2 class="ui item">${store.score} / ${store.questions.length}</h2>
@@ -67,28 +65,37 @@ return `
 
 function createResultsScreen() {
   return `
-  <header class="ui ui container two item menu">
-  <h1 class="ui item large header">SpongeBob Quiz</h1>
-  <h2 class="ui item">${store.score} / ${store.questions.length}</h2></header>
-  <table class="ui brown celled padded table">
+  <div class="ui ui-container grid center aligned">
+  <table class="ui brown celled padded table centered aligned">
       <thead>
-        <tr><th class="single line">Correct</th>
-        <th>Incorrect</th>
-        <th>%</th>
-      </tr></thead>
+        <tr>
+          <th class="single line">Correct</th>
+          <th>Incorrect</th>
+          <th>%</th>
+        </tr>
+      </thead>
       <tbody>
         <tr>
           <td>
-            <h2 class="ui center aligned header">A</h2>
+            <h2 class="ui center aligned header" id="number-correct">${store.score}</h2>
           </td>
           <td class="single line">
+          <h2 class="ui center aligned header" id="number-incorrect">${store.questions.length -  store.score}</h2>
           </td>
           <td>
-            <div class="ui star rating" data-rating="3" data-max-rating="3"></div>
+            <div class="ui star rating" data-rating="3" data-max-rating="3">
+              <h2 class="ui center aligned header" id="percent-correct">${store.score/store.questions.length * 100}
+              </h2>
+            </div>
           </td>
         </tr>
       </tbody>
-    </table>`;
+    </table>
+    </div>
+    <div class="ui centered aligned">
+      <button id="try-again" class="button">try again</button>
+    </div>
+    `;
 }
 
 function handleStartClick() {
@@ -136,10 +143,13 @@ function handleAnswerClick() {
 }
 
 function handleRetryClick() {
-  store.questionNumber = 0;
-  store.quizStarted = false;
-  store.score = 0;
-  render();
+  $('main').on('click','#try-again', (e) =>{
+    console.log(e.target);
+    store.questionNumber = 0;
+    store.quizStarted = false;
+    store.score = 0;
+    render();
+  });
 }
 
 function render() {
@@ -154,7 +164,7 @@ function render() {
 
   if (store.questionNumber > store.questions.length) {
     console.log("questions ended");
-    header.empty();
+    header.html(createHeader());
     return main.html(createResultsScreen());
   }
   console.log(`Current question: ${store.questionNumber}`);

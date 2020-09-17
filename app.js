@@ -37,7 +37,7 @@ function createQuestionScreen() {
       })
       .join("")}
   </div>
-  <button class="ui button right floated" id="next">Next</button>
+  <button class="ui button disabled right floated" id="next">Next</button>
   </form>
 </div>
 `;
@@ -60,6 +60,7 @@ function handleStartClick() {
   const main = $("main");
   $("main").on("click", "#start-button", (e) => {
     store.questionNumber = 1;
+    store.quizStarted = true;
     render();
   });
 }
@@ -69,16 +70,16 @@ function handleNextClick() {
   $("main").on("click", "#next", (e) => {
     e.preventDefault();
     console.log('in next click', e);
-    store.quizStarted = true;
 
-    //gets current question object
-    const questionContainer = store.questions[store.questionNumber - 1];
-    const selectedAnswer = $(`#answer${questionContainer}`);
-    console.log(selectedAnswer);
+    console.log(store.selectedAnswer);
+    
+    
+    console.log('selected answer:',store.selectedAnswer);
+    console.log('correct index:',store.questions[store.questionNumber - 1]);
+    if (store.selectedAnswer == store.questions[store.questionNumber - 1].correctIndex) { store.score++}
+    console.log('score',store.score);
+
     store.questionNumber++;
-
-    // if (questionContainer.correct == )
-    store.score++;
     render();
   });
 }
@@ -94,6 +95,8 @@ function handleAnswerClick() {
     //updates last selected index
     store.lastSelected = store.selectedAnswer;
     $(e.currentTarget).find('input').attr('checked', '');
+
+    if ($(e.currentTarget).parent().find('input[checked]')) $('#next').removeClass('disabled');
     
   });
 }
@@ -108,7 +111,6 @@ function handleRetryClick() {
 function render() {
   const main = $("main");
   const header = $("header");
-  console.log(store.quizStarted == true);
   if (store.questionNumber === 0) {
     console.log("in store.score");
     if (!store.quizStarted) return main.html(createStartScreen());
@@ -116,7 +118,7 @@ function render() {
     return main.html(createQuestionScreen());
   }
 
-  if (store.questionNumber == store.questions.length) {
+  if (store.questionNumber > store.questions.length) {
     console.log("questions ended");
     header.empty();
     return main.html(createResultsScreen());

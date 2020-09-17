@@ -17,7 +17,9 @@ const store = {
 function createStartScreen() {
   return `
   <h2 class="ui huge header center aligned" id="welcome-message">Welcome to the SpongeBob Quiz!</h2>
-  <div class="ui grid segment very padded" id="start-button-div"> <button id="start-button" class="ui big pink button eight wide column centered">start button</button>
+  <div class="ui grid segment very padded" id="start-button-div">
+  <button id="start-button" class="ui big pink button eight wide column centered">start button</button>
+  </div>
   `;
   // <button id="try-again-button" class="ui button right aligned">results button</button> </div>
 }

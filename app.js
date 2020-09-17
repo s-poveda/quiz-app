@@ -15,40 +15,34 @@ const store = {
 };
 
 function createStartScreen() {
-  return `
-  <h2 class="ui huge header center aligned" id="welcome-message">Welcome to the SpongeBob Quiz!</h2>
-  <div class="ui grid segment very padded" id="start-button-div"> <button id="start-button" class="ui big pink button eight wide column centered">start button</button>
-  `;
-  // <button id="try-again-button" class="ui button right aligned">results button</button> </div>
+  return '<div class="ui centered"> <button id="start-button" class="ui button">start button</button> <button id="try-again-button" class="ui button right aligned">results button</button> </div>';
 }
 
 function createQuestionScreen() {
   const questionContainer = store.questions[store.questionNumber - 1];
   return `
   <div class="ui grid container">
-    <div class="ui segment ten wide column centered">
-      <h2 class="ui fourteen row huge header" id="question">${questionContainer.text}</h2>
-    </div>
-  
-    <form action="" class="ui twelve wide column segment form centered">
+  <h2 class="ui centered fourteen row" id="question">${questionContainer.text}</h2>
+  <form action="" class="ui twelve wide column segment form centered">
     <div class="ui" id="answer-list">
     ${questionContainer.answers
       .map((answer, index) => {
         return `
       <div class="ui selection" id="${ANSWER_OPTION + index}">
-        <input class="ui input radio" type="radio" id="input${index}" name="answer" >
-        <label for="answer" class="ui label header answer-text">${answer}</label>
+          <input class="ui input" type="radio" id="input${index}" name="answer" >
+          <label for="answer" class="answer-text">${answer}</label>
       </div>
       
       `;
       })
       .join("")}
   </div>
-  <button class="ui right labeled icon huge button disabled right floated" id="next">Next<i class="right arrow icon"></i></button>
+  <button class="ui button disabled right floated" id="next">Next</button>
   </form>
 </div>
 `;
 }
+
 
 function createHeader() {
   // TODO: change the name of quiz
@@ -77,6 +71,7 @@ function handleNextClick() {
   $("main").on("click", "#next", (e) => {
     e.preventDefault();
     
+
     if (store.selectedAnswer != store.questions[store.questionNumber - 1].correctIndex) { 
       $('#answer-list').find(`#${ANSWER_OPTION+store.selectedAnswer} label`).css('background-color', 'red')
     } else {
@@ -110,7 +105,6 @@ function handleRetryClick() {
   store.questionNumber = 0;
   store.quizStarted = false;
   store.score = 0;
-  
   render();
 }
 

@@ -16,9 +16,11 @@ const store = {
 
 function createStartScreen() {
   return `
-  <h2 class="ui huge header center aligned" id="welcome-message">Welcome to the SpongeBob Quiz!</h2>`;
-  //<div class="ui grid segment very padded" id="start-button-div"> <button id="start-button" class="ui big pink button eight wide column centered">start button</button>
-}
+  <h2 class="ui huge header center aligned" id="welcome-message">Welcome to the SpongeBob Quiz!</h2>
+  <div class="ui grid segment very padded" id="start-button-div"> 
+  <button id="start-button" class="ui big pink button eight wide column centered">start button</button>
+  </div>
+  `}
 
 function createQuestionScreen() {
   const questionContainer = store.questions[store.questionNumber - 1];

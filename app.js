@@ -65,33 +65,24 @@ return `
 
 function createResultsScreen() {
   return `
-  <div class="ui ui-container grid center aligned">
-  <table class="ui brown celled padded table centered aligned">
-      <thead>
-        <tr>
-          <th class="single line">Correct</th>
-          <th>Incorrect</th>
-          <th>%</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>
-            <h2 class="ui center aligned header" id="number-correct">${store.score}</h2>
-          </td>
-          <td class="single line">
-          <h2 class="ui center aligned header" id="number-incorrect">${store.questions.length -  store.score}</h2>
-          </td>
-          <td>
-            <div class="ui star rating" data-rating="3" data-max-rating="3">
-              <h2 class="ui center aligned header" id="percent-correct">${store.score/store.questions.length * 100}
-              </h2>
-            </div>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-    </div>
+  <div class="ui container centered">
+	
+	<div class="table">
+		<div class="table-header">
+			<div class="header__item"><h2>Correct</h2></div>
+			<div class="header__item"><h2>Incorrect</h2></div>
+			<div class="header__item"><h2>%</h2></div>
+  </div>
+    <div class="table-content">	
+			</div>
+			<div class="table-row">
+				<div class="table-data">${store.score}</div>
+				<div class="table-data">${store.questions.length - store.score}</div>
+				<div class="table-data">${store.score / store.questions.length *100}</div>
+			</div>
+		</div>	
+	</div>
+</div>
     <div class="ui centered aligned">
       <button id="try-again" class="button">try again</button>
     </div>

@@ -24,6 +24,7 @@ table {
 label {
   font-size: 20px;
   margin-left: 20px;
+  
 }
 
 main {
@@ -46,11 +47,50 @@ main {
   margin: 10% 20px 20px 20px;
   height: 20%;
   background-color: #f8f8ff;
+  display: flex;
+  flex-direction: row;
+
 }
 .th.single.line{
   font-weight: bold;
+  display: flex;
+  flex-direction: column;
+
 }
 
+.table {
+	width:70%;
+  border:1px solid white;
+  margin-left: 15%;
+  background-color: white;
+  
+}
+
+.table-header {
+	display:flex;
+  width:100%;
+  line-height: 40px;
+  height: 50px;
+  background:#000;
+  color: white;
+}
+
+.table-row {
+	display:flex;
+  width:100%;
+  font-size: larger;
+  padding-top: 15px;
+	
+
+}
+
+.table-data, .header__item {
+	flex: 1 1 20%;
+  text-align:center;
+  height: 50px;
+  padding-top: 5px;
+
+}
 /* #try-again-button {
   background-color: #4CAF50;
   border: none;

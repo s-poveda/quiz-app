@@ -55,7 +55,29 @@ function createHeader() {
 }
 
 function createResultsScreen() {
-  console.log("result screen");
+  return `
+  <header class="ui ui container two item menu">
+  <h1 class="ui item large header">SpongeBob Quiz</h1>
+  <h2 class="ui item">${store.score} / ${store.questions.length}</h2></header>
+  <table class="ui brown celled padded table">
+      <thead>
+        <tr><th class="single line">Correct</th>
+        <th>Incorrect</th>
+        <th>%</th>
+      </tr></thead>
+      <tbody>
+        <tr>
+          <td>
+            <h2 class="ui center aligned header">A</h2>
+          </td>
+          <td class="single line">
+          </td>
+          <td>
+            <div class="ui star rating" data-rating="3" data-max-rating="3"></div>
+          </td>
+        </tr>
+      </tbody>
+    </table>`;
 }
 
 function handleStartClick() {

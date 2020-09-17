@@ -69,10 +69,6 @@ function handleStartClick() {
 function handleNextClick() {
   $("main").on("click", "#next", (e) => {
     e.preventDefault();
-    console.log('in next click', e);
-
-    console.log(store.selectedAnswer);
-    
     
     console.log('selected answer:',store.selectedAnswer);
     console.log('correct index:',store.questions[store.questionNumber - 1]);

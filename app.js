@@ -45,7 +45,7 @@ function createQuestionScreen() {
 function createHeader() {
   // TODO: change the name of quiz
   return `
-<h1 class="ui header">NAME OF QUIZ</h1>
+<h1 class="ui item large header">NAME OF QUIZ</h1>
 <h2 class="active item" id="question-number"> Question: ${store.questionNumber}/${store.questions.length}</h2>
 <h2 class="item">${store.score} / ${store.questions.length}</h2>
 `;

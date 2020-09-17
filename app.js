@@ -77,15 +77,11 @@ function handleNextClick() {
   $("main").on("click", "#next", (e) => {
     e.preventDefault();
     
-    console.log('selected answer:',store.selectedAnswer);
-    console.log('correct index:',store.questions[store.questionNumber - 1]);
-    
     if (store.selectedAnswer != store.questions[store.questionNumber - 1].correctIndex) { 
       $('#answer-list').find(`#${ANSWER_OPTION+store.selectedAnswer} label`).css('background-color', 'red')
     } else {
       store.score++
     }
-    console.log($(`#${ANSWER_OPTION+store.questions[store.questionNumber - 1].correctIndex}`));
     $(`#${ANSWER_OPTION+store.questions[store.questionNumber - 1].correctIndex} label`).css('background-color', 'green');
     store.questionNumber++;
     setTimeout(render, 650);

@@ -8,18 +8,6 @@ div button{
   text-align: center;
 }
 
-/* #start-button {
-  background-color: #4CAF50;
-  border: none;
-  color: white;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: block;
-  font-size: 16px;
-  margin-bottom: 19px;
-} */
-
 table {
   width: 70% !important;
 }
@@ -54,30 +42,12 @@ main {
   font-weight: bold;
 }
 
-/* #try-again-button {
-  background-color: #4CAF50;
-  border: none;
-  color: white;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display:block;
-  font-size: 16px;
-
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
-
-   
-}
-*/
-
-
 #question-number{
 
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }
 
 header{
-
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }
 .ui.twelve.wide.column.segment.form.centered{

@@ -8,9 +8,11 @@
 */
 
 body{
+  background-image: url('https://static0.srcdn.com/wordpress/wp-content/uploads/2019/09/bikini-bottom.png');
+  background-size: cover;
   overflow: hidden;
-    width:100%;
 }
+
 div button{
   text-align: center;
 }
@@ -24,12 +26,40 @@ div button{
   display: block;
   font-size: 16px;
   margin-bottom: 19px;
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
-
 }
 
-#try-again-button {
-  background-color: #4CAF50; /* Green */
+label {
+  font-size: 20px;
+  margin-left: 20px;
+}
+
+main {
+  margin-top: 50px;
+}
+#welcome-message {
+  color: #fff;;
+}
+
+#start-button-div {
+  background: transparent;
+  border: none;
+}
+
+#start-button {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+
+};
+.ui.brown.celled.padded.table{
+  margin: 10% 20px 20px 20px;
+  height: 20%;
+  background-color: #f8f8ff;
+}
+.th.single.line{
+  font-weight: bold;
+}
+
+/* #try-again-button {
+  background-color: #4CAF50;
   border: none;
   color: white;
   padding: 15px 32px;
@@ -39,8 +69,13 @@ div button{
   font-size: 16px;
 
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+
    
 }
+
+  
+} */
+
 
 #question-number{
 
@@ -57,4 +92,14 @@ header{
 
 .ui.button.right.floated{
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+  #answer-list *{
+  cursor: pointer;
+}
+#answer-list > div{
+  margin: 15px 0;
+}
+
+#answer-list:last-child {
+  margin-bottom: 0;
 }

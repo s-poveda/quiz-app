@@ -1,11 +1,11 @@
 export default [
     {   text:"Who is Spong Bobs best friend?",
-        answers:["Patrick", "Sandy ", "Mr. Crabs", "Gary the Snail."],
+        answers:["Patrick", "Sandy ", "Mr. Crabs", "Gary the Snail"],
         correctIndex: 0
         },
     
     {   text:"Where does Sponge Bob live?",
-        answers:["Washington DC.", "The Sewer.", "In London.", "Bikini Bottom."],
+        answers:["Washington DC", "The Sewer", "In London", "Bikini Bottom"],
         correctIndex: 3
        },
         

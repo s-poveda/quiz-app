@@ -1,7 +1,3 @@
-/**
- * Example store structure
- */
-
 import questions from "./questions.js";
 const ANSWER_OPTION = 'answer';
 const store = {
@@ -13,6 +9,9 @@ const store = {
   lastSelected: null
 };
 
+/********** TEMPLATE GENERATION FUNCTIONS **********/
+
+//called when rendering start screen 
 function createStartScreen() {
   return `
   <h2 class="ui huge header center aligned" id="welcome-message">Welcome to the SpongeBob Quiz!</h2>
@@ -21,6 +20,7 @@ function createStartScreen() {
   </div>
   `}
 
+// called to render questions (based on question number)
 function createQuestionScreen() {
   const questionContainer = store.questions[store.questionNumber - 1];
   return `
@@ -48,7 +48,7 @@ function createQuestionScreen() {
 `;
 }
 
-
+// called to render in-game header or after game header
 function createHeader() {
   if (store.questionNumber - 1 < store.questions.length) return `
 <h2 class="ui item large header">SpongeBob Quiz</h2>
@@ -63,22 +63,23 @@ return `
 `;
 }
 
+// called to render end screen after last question
 function createResultsScreen() {
   return `
   <div class="ui container centered">
 	
 	<div class="table">
 		<div class="table-header">
-			<div class="header__item"><h2>Correct</h2></div>
-			<div class="header__item"><h2>Incorrect</h2></div>
-			<div class="header__item"><h2>%</h2></div>
+			<div class="header__item"><h2 class="ui header medium">Correct</h2></div>
+			<div class="header__item"><h2 class="ui header medium">Incorrect</h2></div>
+			<div class="header__item"><h2 class="ui header medium">%</h2></div>
   </div>
     <div class="table-content">	
 			</div>
 			<div class="table-row">
 				<div class="table-data">${store.score}</div>
 				<div class="table-data">${store.questions.length - store.score}</div>
-				<div class="table-data">${store.score / store.questions.length *100}</div>
+				<div class="table-data">${store.score / store.questions.length * 100}</div>
 			</div>
 		</div>	
 	</div>
@@ -92,7 +93,9 @@ try again
     `;
 }
 
+/********** EVENT HANDLER FUNCTIONS **********/
 
+// launches first question on start button click
 function handleStartClick() {
   const main = $("main");
   $("main").on("click", "#start-button", (e) => {
@@ -102,7 +105,7 @@ function handleStartClick() {
   });
 }
 
-//TODO: FINISH HANDLE NEXT BUTTON
+//launches render to update question screen
 function handleNextClick() {
   $("main").on("click", "#next", (e) => {
     e.preventDefault();
@@ -120,6 +123,8 @@ function handleNextClick() {
   });
 }
 
+//allows for user to click on parent div of input to select input
+//and allows user to select options multiple times
 function handleAnswerClick() {
   $('main').on('click','.selection', (e) => {
     const lastSelectedEl = $(`div[id="${ANSWER_OPTION + store.lastSelected}"`).find('input');
@@ -137,9 +142,11 @@ function handleAnswerClick() {
   });
 }
 
+
+/********** RENDER FUNCTION **********/
+//calls render on result screen to restart game from start screen
 function handleRetryClick() {
   $('main').on('click','#try-again', (e) =>{
-    console.log(e.target);
     store.questionNumber = 0;
     store.quizStarted = false;
     store.score = 0;
@@ -147,22 +154,19 @@ function handleRetryClick() {
   });
 }
 
+
 function render() {
   const main = $("main");
   const header = $("header");
   if (store.questionNumber === 0) {
-    console.log("in store.score");
     if (!store.quizStarted) return main.html(createStartScreen());
-    console.log("after quiz started");
     return main.html(createQuestionScreen());
   }
 
   if (store.questionNumber > store.questions.length) {
-    console.log("questions ended");
     header.html(createHeader());
     return main.html(createResultsScreen());
   }
-  console.log(`Current question: ${store.questionNumber}`);
   header.html(createHeader());
   main.html(createQuestionScreen());
 }
@@ -175,31 +179,3 @@ $(() => {
   handleRetryClick();
   render();
 });
-
-/**
- *
- * Technical requirements:
- *
- * Your app should include a render() function, that regenerates the view each time the store is updated.
- * See your course material and access support for more details.
- *
- * NO additional HTML elements should be added to the index.html file.
- *
- * You may add attributes (classes, ids, etc) to the existing HTML elements, or link stylesheets or additional scripts if necessary
- *
- * SEE BELOW FOR THE CATEGORIES OF THE TYPES OF FUNCTIONS YOU WILL BE CREATING 👇
- *
- *
- */
-
-/********** TEMPLATE GENERATION FUNCTIONS **********/
-
-// These functions return HTML templates
-
-/********** RENDER FUNCTION(S) **********/
-
-// This function conditionally replaces the contents of the <main> tag based on the state of the store
-
-/********** EVENT HANDLER FUNCTIONS **********/
-
-// These functions handle events (submit, click, etc)

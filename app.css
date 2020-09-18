@@ -34,14 +34,7 @@ main {
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 
 };
-.ui.brown.celled.padded.table{
-  margin: 10% 20px 20px 20px;
-  height: 20%;
-  background-color: #f8f8ff;
-  display: flex;
-  flex-direction: row;
 
-}
 .th.single.line{
   font-weight: bold;
   display: flex;
@@ -82,24 +75,8 @@ main {
   padding-top: 5px;
 
 }
-/* #try-again-button {
-  background-color: #4CAF50;
-  border: none;
-  color: white;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display:block;
-  font-size: 16px;
 
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
-
-   
-}
-*/
-
-
-#question-number{
+#question-number {
 
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }
@@ -149,5 +126,15 @@ header{
 }
 
 .header__item {
-	text-transform:uppercase;
+  text-transform:uppercase;
+}
+
+.header__item .ui.header {
+  color: #fff;
+}
+
+@media all and (min-width: 700px) {
+  .header__item h2 {
+    font-size: 14px;
+  }
 }

@@ -4,18 +4,19 @@ body{
   overflow: hidden;
 }
 
-div button{
-  text-align: center;
-}
-
-table {
-  width: 70% !important;
+header{
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }
 
 label {
   font-size: 20px;
-  margin-left: 20px;
-  
+  margin-left: 20px;  
+}
+
+hr {
+  height: 35px;
+  margin: 0;
+  padding: 0;
 }
 
 main {
@@ -43,17 +44,17 @@ main {
 }
 
 .table {
-	width:70%;
   border:1px solid white;
   margin-left: 15%;
   background-color: white;
-  
+  width:70%;
+  border:none;
+  border-radius: 4px;
 }
 
 .table-header {
 	display:flex;
   width:100%;
-  line-height: 40px;
   height: 50px;
   background:#000;
   color: white;
@@ -69,7 +70,7 @@ main {
 }
 
 .table-data, .header__item {
-	flex: 1 1 20%;
+	flex: 1;
   text-align:center;
   height: 50px;
   padding-top: 5px;
@@ -81,9 +82,6 @@ main {
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }
 
-header{
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
-}
 .ui.twelve.wide.column.segment.form.centered{
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }
@@ -91,7 +89,7 @@ header{
 .ui.button.right.floated{
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }
-  #answer-list *{
+#answer-list *{
   cursor: pointer;
 }
 #answer-list > div{
@@ -101,17 +99,11 @@ header{
 #answer-list:last-child {
   margin-bottom: 0;
 }
-/* ------------------------------------------------------------------------------- */
-
-
-.table {
-	width:70%;
-	border:1px solid black;
-}
 
 .table-header {
 	display:flex;
-	width:100%;
+  width:100%;
+  padding-top: 9px;
 	background:#000;
 }
 
@@ -133,8 +125,4 @@ header{
   color: #fff;
 }
 
-@media all and (min-width: 700px) {
-  .header__item h2 {
-    font-size: 14px;
-  }
 }

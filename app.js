@@ -66,7 +66,7 @@ return `
 // called to render end screen after last question
 function createResultsScreen() {
   return `
-  <div class="ui container centered">
+  <div class="ui container">
 	
 	<div class="table">
 		<div class="table-header">
@@ -77,8 +77,8 @@ function createResultsScreen() {
     <div class="table-content">	
 			</div>
 			<div class="table-row">
-				<div class="table-data">${store.score}</div>
-				<div class="table-data">${store.questions.length - store.score}</div>
+				<div class="table-data">${store.score}</div><hr>
+				<div class="table-data">${store.questions.length - store.score}</div><hr>
 				<div class="table-data">${store.score / store.questions.length * 100}</div>
 			</div>
 		</div>	
@@ -127,8 +127,6 @@ function handleNextClick() {
 //and allows user to select options multiple times
 function handleAnswerClick() {
   $('main').on('click','.selection', (e) => {
-    const lastSelectedEl = $(`div[id="${ANSWER_OPTION + store.lastSelected}"`).find('input');
-
     //removes 'checked' attribute from last selected input
     $(`div[id="${ANSWER_OPTION + store.lastSelected}"`).find('input').removeAttr('checked');
     //sets current selected index

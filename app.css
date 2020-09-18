@@ -7,20 +7,11 @@ body{
 div button{
   text-align: center;
 }
-#start-button {
-  background-color: #4CAF50; /* Green */
-  border: none;
-  color: white;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: block;
-  font-size: 16px;
-  margin-bottom: 19px;
-}
+
 table {
   width: 70% !important;
 }
+
 label {
   font-size: 20px;
   margin-left: 20px;
@@ -34,7 +25,7 @@ main {
   color: #fff;;
 }
 
-#start-button-div {
+#start-button-div, #try-again-button-div {
   background: transparent;
   border: none;
 }
@@ -114,7 +105,6 @@ main {
 }
 
 header{
-
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }
 .ui.twelve.wide.column.segment.form.centered{
@@ -133,4 +123,31 @@ header{
 
 #answer-list:last-child {
   margin-bottom: 0;
+}
+/* ------------------------------------------------------------------------------- */
+
+
+.table {
+	width:70%;
+	border:1px solid black;
+}
+
+.table-header {
+	display:flex;
+	width:100%;
+	background:#000;
+}
+
+.table-row {
+	display:flex;
+	width:100%;
+}
+
+.table-data, .header__item {
+	flex: 1 1 20%;
+	text-align:center;
+}
+
+.header__item {
+	text-transform:uppercase;
 }

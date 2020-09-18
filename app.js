@@ -112,11 +112,11 @@ function handleNextClick() {
     
 
     if (store.selectedAnswer != store.questions[store.questionNumber - 1].correctIndex) { 
-      $('#answer-list').find(`#${ANSWER_OPTION+store.selectedAnswer} label`).css('background-color', 'red')
+      $('#answer-list').find(`#${ANSWER_OPTION+store.selectedAnswer} label`).css('background', 'red')
     } else {
       store.score++
     }
-    $(`#${ANSWER_OPTION+store.questions[store.questionNumber - 1].correctIndex} label`).css('background-color', 'green');
+    $(`#${ANSWER_OPTION+store.questions[store.questionNumber - 1].correctIndex} label`).css('background', 'rgb(0, 179, 0)');
     store.questionNumber++;
     setTimeout(render, 590);
     

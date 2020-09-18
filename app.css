@@ -31,6 +31,10 @@ main {
   border: none;
 }
 
+#start-button:focus, #try-again:focus {
+  background: rgb(0, 179, 0) !important;
+}
+
 #start-button {
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 

@@ -1,5 +1,5 @@
 # Quiz App
-***[Live Demo](https://s-poveda.github.io/quiz-app/)***
+***[Live App](https://s-poveda.github.io/quiz-app/)***
 ## Collaboration:
 [Samuel P.](https://github.com/s-poveda)
 
